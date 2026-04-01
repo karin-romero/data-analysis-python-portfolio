@@ -1,0 +1,16 @@
+import pandas as pd
+
+df = pd.read_csv("datos_financieros.csv")
+
+negativos = df[df['monto'] < 0]
+nulos = df[df.isnull().any(axis=1)]
+duplicados = df[df.duplicated()]
+
+print("Registros con valores negativos:")
+print(negativos)
+
+print("Registros con valores nulos:")
+print(nulos)
+
+print("Registros duplicados:")
+print(duplicados)
